@@ -19,10 +19,11 @@ data = int(countli[0])
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(18,GPIO.IN)
-
+GPIO.setup(27,GPIO.IN)
 while True:
     i = GPIO.input(18)
-    if i == False:
+    j = GPIO.input(27)
+    if (i == False or j == False):
         data+=1
         ref.update({'count':data})
         print("Motion Detected" + str(data))
